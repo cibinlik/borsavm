@@ -4,9 +4,8 @@ class CreateOrders < ActiveRecord::Migration
       t.integer :stock_id
       t.integer :user_id
       t.float :price
-      t.buy :boolean
+      t.boolean :buy
       t.boolean :completed
-
       t.timestamps
     end
   end
