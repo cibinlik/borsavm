@@ -4,22 +4,27 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 #
+# In order to use heroku, we need to change the adapter to postgresql from sqlite3
 default: &default
-  adapter: sqlite3
+  adapter: postgresql
   pool: 5
   timeout: 5000
+  database: borsavm
+  hostname: localhost
+  username: cibinlik
+  password: karasinek
+
 
 development:
   <<: *default
-  database: db/development.sqlite3
-
+# For heroku config, I've changed database from db/development.sqlite3 to da_database_development
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
-  database: db/test.sqlite3
-
+  <<: *default 
+# db/test.sqlite3 to da_database_test
 production:
   <<: *default
-  database: db/production.sqlite3
+
+# db/production.sqlite3 to da_database_production
